@@ -21,7 +21,7 @@ Verbose: HTML-and-Javascript-based tone sequencer that plays selected notes at a
   - [ ] Have visual elements change appearance on browser events and tone selection
 - [ ] Play sounds when internal function iterates through matrix 
 - [ ] Display text field that allows users to name their sequences
-- [ ] Display buttons that execute functions for interacting with local storage (create, read, update, delete
+- [ ] Display buttons that execute functions for interacting with local storage (create, read, update, delete)
 - [ ] Make a cool logo?!?!?!? :thinking:
 
 #### Remarks
