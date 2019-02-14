@@ -9,7 +9,7 @@ Verbose: HTML-and-Javascript-based tone sequencer that plays selected notes at a
 
 #### Sub-UI/X
 - [ ] Create a data structure to hold a matrix representing notes to play at an interval
-- [ ] Create a function that iterates through the matrix and executes instructions based on the condition of an element
+- [ ] Utilize Web Audio API's built-in rendering thread coordinate system to create a clock for functions to be executed
 - [ ] Create functions that store and interact with matrix data structures in local storage
   - [ ] Creation and saving of sequences to storage
   - [ ] Loading and reading of sequences from storage
@@ -19,15 +19,17 @@ Verbose: HTML-and-Javascript-based tone sequencer that plays selected notes at a
 #### UI/X
 - [ ] Build visual elements to represent an existing tone matrix
   - [ ] Have visual elements change appearance on browser events and tone selection
-- [ ] Play sounds when internal function iterates through matrix 
+- [ ] Add play and stop buttons that start and stop the audio context clock
+  - [ ] Write function that generates raw oscillator tones for selected notes
 - [ ] Display text field that allows users to name their sequences
 - [ ] Display buttons that execute functions for interacting with local storage (create, read, update, delete)
 - [ ] Make a cool logo?!?!?!? :thinking:
 
 #### Remarks
 - Writing a new class Tonematrix with a custom constructor will allow for repeatable construction of matrices and references to functions in its prototype
-- Audio may potentially be played through the use of the HTMLAudioElement object
-  - Play duration and changes may be parameterized by the use of HTMLAudioElement's methods
+- Audio must be queued and played in a time sensitive manner
+  - Javascript's built-in Web Audio API contains methods that allow for generation and playback of raw sine waves as well as well as a time coordinate system to which sounds can be queued
+  - Audio sources can be connected to filter objects and gain controls to allow for audio effects
 
 ### Stretch Goals
 
@@ -35,7 +37,6 @@ Verbose: HTML-and-Javascript-based tone sequencer that plays selected notes at a
 - [ ] Create function allowing for extension of current matrix
 - [ ] Allow parameterization of time interval at which notes are played
   - [ ] Convert BPM to milliseconds
-- [ ] Create a function allowing for users to add their own sounds from a source the user specifies
 
 #### UI/X
 - [ ] Hide stuff away in pretty animated drawers when not in use
