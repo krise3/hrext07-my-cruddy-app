@@ -1,7 +1,6 @@
 //Init app
 //interact with DOM
 //interact with localstorage
-
 $(document).ready(function(){ // this is where we jquery
 
   var notesheet = {
