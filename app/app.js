@@ -1,9 +1,6 @@
-/*
-Init app
-interact with DOM
-interact with localstorage
-*/
-
+//Init app
+//interact with DOM
+//interact with localstorage
 
 $(document).ready(function(){ // this is where we jquery
 
@@ -18,9 +15,10 @@ $(document).ready(function(){ // this is where we jquery
   }
 
   var soundbank = {};
-
-  var context = new AudioContext();
-  var matrix = new Tonematrix(16, notesheet);
+  var steps = 16;
+  var matrix = new Tonematrix(steps, notesheet);
+  var clock = new Clock({tempo: 120, beats: steps}, matrix);
+  clock.add(playNote);
 
   var tonebuttonstyle = [{'background-color': 'midnightblue'}, {'background-color': 'white'}];
 
@@ -40,6 +38,18 @@ $(document).ready(function(){ // this is where we jquery
     }
 
     console.log(note + ' at ' + step + ' is now ' + matrix[note][step]);
+  });
+
+  $('#play-stop').on('click', function(e) {
+    if (!this.playing) {
+      this.playing = true;
+      console.log(this.playing);
+      clock.play();
+    } else {
+      this.playing = false;
+      console.log(this.playing);
+      clock.stop();
+    }
   });
 
   //var keyData = 'ourKey'; // going to need to make this dynamic?

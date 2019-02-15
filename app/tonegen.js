@@ -1,7 +1,7 @@
 var Tonematrix = function (length, notesheet) {
   this.sequenceLength = length;
   this.notesheet = notesheet;
-  this.bpm = 80;
+  this.soundbank = {};
   this.reset();
 }
 
@@ -22,5 +22,13 @@ Tonematrix.prototype.buildReverse = function (callback) {
 Tonematrix.prototype.eachNote = function (callback) {
   for (let note in this.notesheet) {
     callback(note, this.notesheet[note], this[note], this);
+  }
+}
+
+Tonematrix.prototype.scanNote = function (callback, index, context) {
+  for (let note in this.notesheet) {
+    if (this[note][index] === 1) {
+      callback(note, this.notesheet[note], context)
+    }
   }
 }
