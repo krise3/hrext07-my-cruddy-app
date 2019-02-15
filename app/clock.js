@@ -1,6 +1,7 @@
 var Clock = function(options, matrix) {
   this.context = new AudioContext();
   this.matrix = matrix;
+  this.soundbank = {};
   this.tempo = options.tempo;
   this.totalBeats = options.beats;
   this.handlers = [];
@@ -26,7 +27,7 @@ Clock.prototype.tick = function() {
 Clock.prototype.trigger = function(now) {
   var clock = this;
   this.handlers.forEach(function(handler) {
-    handler(now, clock.beat, clock.context, clock.matrix);
+    handler(now, clock.beat, clock.context, clock.matrix, clock.soundbank);
   });
 }
 

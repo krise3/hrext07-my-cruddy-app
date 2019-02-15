@@ -14,10 +14,9 @@ $(document).ready(function(){ // this is where we jquery
     'b': 493.9
   }
 
-  var soundbank = {};
   var steps = 16;
   var matrix = new Tonematrix(steps, notesheet);
-  var clock = new Clock({tempo: 120, beats: steps}, matrix);
+  var clock = new Clock({tempo: 200, beats: steps}, matrix);
   clock.add(playNote);
 
   var tonebuttonstyle = [{'background-color': 'midnightblue'}, {'background-color': 'white'}];
