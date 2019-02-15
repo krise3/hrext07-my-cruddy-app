@@ -13,6 +13,7 @@ var soundbank = {};
 var Tonematrix = function (length, notesheet) {
   this.sequenceLength = length;
   this.notesheet = notesheet;
+  this.bpm = 80;
   this.reset();
 }
 
@@ -23,8 +24,8 @@ Tonematrix.prototype.reset = function () {
 }
 
 Tonematrix.prototype.eachStep = function (callback) {
-  for (let step = 0; step < this.sequenceLength; step++) {
-    for (let note in this.notesheet) {
+  for (let note in this.notesheet) {
+    for (let step = this.sequenceLength - 1; step >= 0; step--) {
       callback(this[note][step], step, note, this[note], this);
     }
   }

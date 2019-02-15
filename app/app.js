@@ -4,13 +4,30 @@ interact with DOM
 interact with localstorage
 */
 
+
 $(document).ready(function(){ // this is where we jquery
 
   var context = new AudioContext();
   var matrix = new Tonematrix(16, notesheet);
 
+  var tonebuttonstyle = [{'background-color': 'midnightblue'}, {'background-color': 'white'}];
+
   matrix.eachStep(function (value, step, note, array, obj) {
-    $('.tonecontainer').append('<div class="tonebutton" id="' + note + ' ' + step + '"></div>');
+    $('.tonecontainer').prepend('<div class="tonebutton" id="' + note + ' ' + step + '"></div>');
+  });
+
+  $('.tonecontainer').on('click', '.tonebutton', function(e) {
+    var [note, step] = [...this.id.split(' ')];
+
+    if (matrix[note][step] === 1) {
+      matrix[note][step] = 0;
+      $(this).css(tonebuttonstyle[0]);
+    } else {
+      matrix[note][step] = 1;
+      $(this).css(tonebuttonstyle[1]);
+    }
+
+    console.log(note + ' at ' + step + ' is now ' + matrix[note][step]);
   });
 
   //var keyData = 'ourKey'; // going to need to make this dynamic?

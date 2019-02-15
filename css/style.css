@@ -7,9 +7,9 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin: 0 auto;
+  margin: 20px auto;
   width: 960px;
-  border: 5px solid white;
+  /*border: 5px solid white;*/
 }
 
 .tonecontainer {
