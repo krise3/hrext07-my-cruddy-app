@@ -7,12 +7,24 @@ interact with localstorage
 
 $(document).ready(function(){ // this is where we jquery
 
+  var notesheet = {
+    'c': 261.6,
+    'd': 293.7,
+    'e': 329.6,
+    'f': 349.2,
+    'g': 392.0,
+    'a': 440.0,
+    'b': 493.9
+  }
+
+  var soundbank = {};
+
   var context = new AudioContext();
   var matrix = new Tonematrix(16, notesheet);
 
   var tonebuttonstyle = [{'background-color': 'midnightblue'}, {'background-color': 'white'}];
 
-  matrix.eachStep(function (value, step, note, array, obj) {
+  matrix.buildReverse(function (value, step, note, array, obj) {
     $('.tonecontainer').prepend('<div class="tonebutton" id="' + note + ' ' + step + '"></div>');
   });
 

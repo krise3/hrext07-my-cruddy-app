@@ -1,15 +1,3 @@
-var notesheet = {
-  'c': 261.6,
-  'd': 293.7,
-  'e': 329.6,
-  'f': 349.2,
-  'g': 392.0,
-  'a': 440.0,
-  'b': 493.9
-}
-
-var soundbank = {};
-
 var Tonematrix = function (length, notesheet) {
   this.sequenceLength = length;
   this.notesheet = notesheet;
@@ -23,7 +11,7 @@ Tonematrix.prototype.reset = function () {
   }
 }
 
-Tonematrix.prototype.eachStep = function (callback) {
+Tonematrix.prototype.buildReverse = function (callback) {
   for (let note in this.notesheet) {
     for (let step = this.sequenceLength - 1; step >= 0; step--) {
       callback(this[note][step], step, note, this[note], this);
