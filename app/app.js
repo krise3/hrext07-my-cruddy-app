@@ -7,6 +7,11 @@ interact with localstorage
 $(document).ready(function(){ // this is where we jquery
 
   var context = new AudioContext();
+  var matrix = new Tonematrix(16, notesheet);
+
+  matrix.eachStep(function (value, step, note, array, obj) {
+    $('.tonecontainer').append('<div class="tonebutton" id="' + note + ' ' + step + '"></div>');
+  });
 
   //var keyData = 'ourKey'; // going to need to make this dynamic?
   $('.btn-add').on('click', function(e){
