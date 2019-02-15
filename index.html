@@ -16,42 +16,22 @@
 <body>
 
   <div class="sequencer">
-
     <div class="tonecontainer"></div>
-
     <div class="playbuttons">
-      <button id="play-stop">Play / Stop</button>
+      <button id="play-stop"><img width="90px" height="90px" src="img/button-play.png" alt="Play / Stop"></button>
     </div>
+  </div>
 
+  <div class="storage-interface">
+    <div class="input-bank">
+      <input type="text" class="text-field" id="sequence-name" />
+      <button class="input-bank-button" id="save">Save</button>
+      <button class="input-bank-button" id="load">Load</button>
+      <button class="input-bank-button" id="delete">Delete</button>
+    </div>
+    <div class="item-wrapper"></div>
   </div>
 
 </body>
 
 </html>
-
-<!--
-
-√ create container
-√ create button
-√ input field
-√ container to display text
-√ update button(or maybe click on the container item)
-√ delete button
-container for the response-feedback (start with alert)
-
-:::: P A S T E B I N ::::
-
-<div class="container-main">
-  <header>My Cruddy App</header>
-  <div class="container-form">
-    <input type="text" class="input-key" placeholder="enter key">
-    <input type="text" class="input-value" placeholder="enter value">
-    <button class="btn-add">Submit</button>
-    <button class="btn-update">Update</button>
-    <button class="btn-delete">Delete</button>
-    <button class="btn-clear">Clear</button>
-  </div>
-  <div class="container-data"></div>
-</div>
-
--->

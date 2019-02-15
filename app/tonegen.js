@@ -1,7 +1,6 @@
 var Tonematrix = function (length, notesheet) {
   this.sequenceLength = length;
   this.notesheet = notesheet;
-  this.soundbank = {};
   this.reset();
 }
 
@@ -30,5 +29,16 @@ Tonematrix.prototype.scanNote = function (callback, index, context) {
     if (this[note][index] === 1) {
       callback(note, this.notesheet[note], context)
     }
+  }
+}
+
+Tonematrix.prototype.export = function () {
+  return JSON.stringify(this);
+}
+
+Tonematrix.prototype.import = function(string) {
+  obj = JSON.parse(string);
+  for (let note in this.notesheet) {
+    this[note] = obj[note].slice();
   }
 }

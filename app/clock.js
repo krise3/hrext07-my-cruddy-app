@@ -1,10 +1,11 @@
-var Clock = function(options, matrix) {
+var Clock = function(matrix) {
   this.context = new AudioContext();
   this.matrix = matrix;
   this.soundbank = {};
-  this.tempo = options.tempo;
-  this.totalBeats = options.beats;
+  this.tempo = 200;
+  this.totalBeats = matrix.sequenceLength;
   this.handlers = [];
+  this.playing = false;
 }
 
 Clock.prototype.tick = function() {
