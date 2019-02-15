@@ -2,7 +2,7 @@ var Clock = function(matrix) {
   this.context = new AudioContext();
   this.matrix = matrix;
   this.soundbank = {};
-  this.tempo = 200;
+  this.tempo = 260;
   this.totalBeats = matrix.sequenceLength;
   this.handlers = [];
   this.playing = false;
@@ -44,9 +44,11 @@ Clock.prototype.play = function() {
   this.start = this.context.currentTime;
   this._tick = this.tick.bind(this);
   this._tick();
+  this.playing = true;
 }
 
 Clock.prototype.stop = function() {
   this._tick = null;
   this.context.close();
+  this.playing = false;
 }

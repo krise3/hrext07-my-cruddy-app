@@ -3,11 +3,23 @@ body {
   margin: 0px;
 }
 
+header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: #33439b;
+  margin: 0px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 20px;
+  padding-bottom: 25px;
+}
+
 .sequencer {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin: 0px auto;
+  margin: 70px auto;
   width: 960px;
   /*border: 5px solid white;*/
 }
@@ -42,7 +54,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin: 20px auto;
+  margin: 20px 20px;
 }
 
 .input-bank {

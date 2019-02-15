@@ -39,10 +39,8 @@ $(document).ready(function(){ // this is where we jquery
 
   $('#play-stop').on('click', function(e) {
     if (!clock.playing) {
-      clock.playing = true;
       clock.play();
     } else {
-      clock.playing = false;
       clock.stop();
     }
   });

@@ -14,8 +14,8 @@ var playNote = function (time, index, context, matrix, soundbank) {
     soundbank[note].start(time);
     soundbank[h1].start(time);
 
-    soundbank[note].stop(time + 0.5);
-    soundbank[h1].stop(time + 0.5);
+    soundbank[note].stop(time + 0.25);
+    soundbank[h1].stop(time + 0.25);
 
   }, index, context);
 }
